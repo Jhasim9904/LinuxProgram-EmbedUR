@@ -1,0 +1,319 @@
+hasim@jhasim:~/LinuxMod$ touch script.sh
+jhasim@jhasim:~/LinuxMod$ ls
+script.sh
+jhasim@jhasim:~/LinuxMod$ ls -l script.sh
+-rw-rw-r-- 1 jhasim jhasim 0 Feb  2 12:19 script.sh
+jhasim@jhasim:~/LinuxMod$ chmod a+x script.sh
+jhasim@jhasim:~/LinuxMod$ ls -l script.sh
+-rwxrwxr-x 1 jhasim jhasim 0 Feb  2 12:19 script.sh
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ touch file1.txt
+jhasim@jhasim:~/LinuxMod$ ls -l file1.txt
+-rw-rw-r-- 1 jhasim jhasim 0 Feb  2 12:27 file1.txt
+jhasim@jhasim:~/LinuxMod$ chmod g--------------w file1.txt
+jhasim@jhasim:~/LinuxMod$ ls -l file1.txt
+-rw-r--r-- 1 jhasim jhasim 0 Feb  2 12:27 file1.txt
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ touch file2.txt
+jhasim@jhasim:~/LinuxMod$ ls -l file2.txt
+-rw-rw-r-- 1 jhasim jhasim 0 Feb  2 12:30 file2.txt
+jhasim@jhasim:~/LinuxMod$ chmod g-w file2.txt
+jhasim@jhasim:~/LinuxMod$ ls -l file2.txt
+-rw-r--r-- 1 jhasim jhasim 0 Feb  2 12:30 file2.txt
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ mkdir -p dir1/dir2
+jhasim@jhasim:~/LinuxMod$ ls
+dir1  file1.txt  file2.txt  script.sh
+jhasim@jhasim:~/LinuxMod$ mkdir -p dir1/dir2
+jhasim@jhasim:~/LinuxMod$ ls
+dir1  file1.txt  file2.txt  script.sh
+jhasim@jhasim:~/LinuxMod$ mkdir dir2
+jhasim@jhasim:~/LinuxMod$ ls
+dir1  dir2  file1.txt  file2.txt  script.sh
+jhasim@jhasim:~/LinuxMod$ touch dir1/dir2/original.txt
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ ls
+dir1  file1.txt  file2.txt  script.sh
+jhasim@jhasim:~/LinuxMod$ rmdir dir1
+rmdir: failed to remove 'dir1': Directory not empty
+jhasim@jhasim:~/LinuxMod$ ls
+dir1  file1.txt  file2.txt  script.sh
+jhasim@jhasim:~/LinuxMod$ rm -r dir1
+jhasim@jhasim:~/LinuxMod$ ls
+file1.txt  file2.txt  script.sh
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ mkdir -p dir1/dir2
+jhasim@jhasim:~/LinuxMod$ touch dir1/dir2/original.txt
+jhasim@jhasim:~/LinuxMod$ ln -s dir1/dir2/original.txt dir1/softlink.txt
+jhasim@jhasim:~/LinuxMod$ ls -l dir1
+total 4
+drwxrwxr-x 2 jhasim jhasim 4096 Feb  2 12:37 dir2
+lrwxrwxrwx 1 jhasim jhasim   22 Feb  2 12:38 softlink.txt -> dir1/dir2/original.txt
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.1  0.3  23356 14456 ?        Ss   12:08   0:02 /sbin/init splash
+root           2  0.0  0.0      0     0 ?        S    12:08   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    12:08   0:00 [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-rcu_gp]
+root           5  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-sync_wq]
+root           6  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-kvfree_rcu_reclaim]
+root           7  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-slub_flushwq]
+root           8  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-netns]
+root          10  0.0  0.0      0     0 ?        I    12:08   0:00 [kworker/0:1-events]
+root          11  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/0:0H-kblockd]
+root          12  0.0  0.0      0     0 ?        I    12:08   0:00 [kworker/u8:0-ipv6_addrconf]
+root          13  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-mm_percpu_wq]
+root          14  0.0  0.0      0     0 ?        I    12:08   0:00 [rcu_tasks_kthread]
+root          15  0.0  0.0      0     0 ?        I    12:08   0:00 [rcu_tasks_rude_kthread]
+root          16  0.0  0.0      0     0 ?        I    12:08   0:00 [rcu_tasks_trace_kthread]
+root          17  0.0  0.0      0     0 ?        S    12:08   0:00 [ksoftirqd/0]
+root          18  0.0  0.0      0     0 ?        I    12:08   0:01 [rcu_preempt]
+root          19  0.0  0.0      0     0 ?        S    12:08   0:00 [rcu_exp_par_gp_kthread_worker/0]
+root          20  0.0  0.0      0     0 ?        S    12:08   0:00 [rcu_exp_gp_kthread_worker]
+root          21  0.0  0.0      0     0 ?        S    12:08   0:00 [migration/0]
+root          22  0.0  0.0      0     0 ?        S    12:08   0:00 [idle_inject/0]
+root          23  0.0  0.0      0     0 ?        S    12:08   0:00 [cpuhp/0]
+root          24  0.0  0.0      0     0 ?        S    12:08   0:00 [cpuhp/1]
+root          25  0.0  0.0      0     0 ?        S    12:08   0:00 [idle_inject/1]
+root          26  0.0  0.0      0     0 ?        S    12:08   0:00 [migration/1]
+root          27  0.0  0.0      0     0 ?        S    12:08   0:00 [ksoftirqd/1]
+root          29  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/1:0H-events_highpri]
+root          31  0.0  0.0      0     0 ?        I    12:08   0:00 [kworker/u10:0-flush-8:0]
+root          32  0.0  0.0      0     0 ?        S    12:08   0:00 [kdevtmpfs]
+root          33  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-inet_frag_wq]
+root          34  0.0  0.0      0     0 ?        S    12:08   0:00 [kauditd]
+root          35  0.0  0.0      0     0 ?        S    12:08   0:00 [khungtaskd]
+root          36  0.0  0.0      0     0 ?        S    12:08   0:00 [oom_reaper]
+root          37  0.0  0.0      0     0 ?        I    12:08   0:00 [kworker/u9:1-flush-8:0]
+root          38  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-writeback]
+root          40  0.0  0.0      0     0 ?        S    12:08   0:00 [kcompactd0]
+root          41  0.0  0.0      0     0 ?        SN   12:08   0:00 [ksmd]
+root          42  0.0  0.0      0     0 ?        SN   12:08   0:00 [khugepaged]
+root          43  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-kintegrityd]
+root          44  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-kblockd]
+root          45  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-blkcg_punt_bio]
+root          46  0.0  0.0      0     0 ?        S    12:08   0:00 [irq/9-acpi]
+root          48  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-tpm_dev_wq]
+root          49  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-ata_sff]
+root          50  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-md]
+root          51  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-md_bitmap]
+root          52  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-edac-poller]
+root          53  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-devfreq_wq]
+root          54  0.0  0.0      0     0 ?        S    12:08   0:00 [watchdogd]
+root          57  0.0  0.0      0     0 ?        S    12:08   0:00 [kswapd0]
+root          58  0.0  0.0      0     0 ?        S    12:08   0:00 [ecryptfs-kthread]
+root          59  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-kthrotld]
+root          60  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-acpi_thermal_pm]
+root          61  0.0  0.0      0     0 ?        I    12:08   0:00 [kworker/u10:2-flush-8:0]
+root          62  0.0  0.0      0     0 ?        S    12:08   0:00 [scsi_eh_0]
+root          63  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-scsi_tmf_0]
+root          64  0.0  0.0      0     0 ?        S    12:08   0:00 [scsi_eh_1]
+root          65  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-scsi_tmf_1]
+root          68  0.0  0.0      0     0 ?        I    12:08   0:00 [kworker/u10:5-flush-8:0]
+root          69  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-mld]
+root          70  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-ipv6_addrconf]
+root          72  0.0  0.0      0     0 ?        I    12:08   0:00 [kworker/u8:1]
+root          78  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-kstrp]
+root          80  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/u11:0]
+root          81  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/u12:0]
+root          82  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/u13:0]
+root          95  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-charger_manager]
+root         145  0.0  0.0      0     0 ?        I    12:08   0:01 [kworker/1:3-mm_percpu_wq]
+root         147  0.0  0.0      0     0 ?        S    12:08   0:00 [scsi_eh_2]
+root         150  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-scsi_tmf_2]
+root         153  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-ttm]
+root         233  0.0  0.0      0     0 ?        S    12:08   0:00 [jbd2/sda2-8]
+root         234  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-ext4-rsv-conversion]
+root         282  0.0  0.4  50840 17840 ?        S<s  12:08   0:00 /usr/lib/systemd/systemd-journald
+root         355  0.0  0.2  30616  8736 ?        Ss   12:08   0:00 /usr/lib/systemd/systemd-udevd
+root         410  0.0  0.0      0     0 ?        S    12:08   0:00 [psimon]
+systemd+     445  0.0  0.1  17564  7648 ?        Ss   12:08   0:00 /usr/lib/systemd/systemd-oomd
+systemd+     449  0.0  0.3  22080 13780 ?        Ss   12:08   0:00 /usr/lib/systemd/systemd-resolved
+root         564  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-iprt-VBoxWQueue]
+root         589  0.0  0.0      0     0 ?        I<   12:08   0:00 [kworker/R-cryptd]
+root         637  0.0  0.0      0     0 ?        I    12:08   0:00 [kworker/u9:8-events_unbound]
+systemd+     690  0.0  0.1  91052  7924 ?        Ssl  12:08   0:00 /usr/lib/systemd/systemd-timesync
+avahi        699  0.0  0.1   8668  4644 ?        Ss   12:08   0:00 avahi-daemon: running [jhasim.loc
+message+     700  0.0  0.1  12212  7356 ?        Ss   12:08   0:00 @dbus-daemon --system --address=s
+gnome-r+     703  0.0  0.4 365348 16416 ?        Ssl  12:08   0:00 /usr/libexec/gnome-remote-desktop
+polkitd      708  0.0  0.3 391000 12288 ?        Ssl  12:08   0:00 /usr/lib/polkit-1/polkitd --no-de
+root         711  0.0  0.1 313376  7408 ?        Ssl  12:08   0:00 /usr/libexec/power-profiles-daemo
+root         724  0.0  0.1 313292  7900 ?        Ssl  12:08   0:00 /usr/libexec/accounts-daemon
+root         725  0.0  0.0   9424  2896 ?        Ss   12:08   0:00 /usr/sbin/cron -f -P
+root         726  0.0  0.1 309720  6488 ?        Ssl  12:08   0:00 /usr/libexec/switcheroo-control
+root         734  0.0  0.2  18120  8988 ?        Ss   12:08   0:00 /usr/lib/systemd/systemd-logind
+root         735  0.0  0.3 469448 14520 ?        Ssl  12:08   0:00 /usr/libexec/udisks2/udisksd
+syslog       756  0.0  0.1 222564  6056 ?        Ssl  12:08   0:00 /usr/sbin/rsyslogd -n -iNONE
+avahi        772  0.0  0.0   8480  1516 ?        S    12:08   0:00 avahi-daemon: chroot helper
+root         773  0.0  0.4 336288 19288 ?        Ssl  12:08   0:00 /usr/sbin/NetworkManager --no-dae
+root         774  0.0  0.1  17384  6484 ?        Ss   12:08   0:00 /usr/sbin/wpa_supplicant -u -s -O
+root         832  0.0  0.3 392092 12768 ?        Ssl  12:08   0:00 /usr/sbin/ModemManager
+root        1070  0.1  0.0 295788  3912 ?        Sl   12:08   0:03 /usr/sbin/VBoxService --pidfile /
+root        1111  0.0  0.3  38388 12372 ?        Ss   12:08   0:00 /usr/sbin/cupsd -l
+root        1118  0.0  0.5 112280 23100 ?        Ssl  12:08   0:00 /usr/bin/python3 /usr/share/unatt
+lp          1127  0.0  0.1  16832  6800 ?        S    12:08   0:00 /usr/lib/cups/notifier/dbus dbus:
+root        1130  0.0  0.2 314812  9360 ?        Ssl  12:08   0:00 /usr/sbin/gdm3
+cups-br+    1160  0.0  0.4 268480 19888 ?        Ssl  12:08   0:00 /usr/sbin/cups-browsed
+kernoops    1176  0.0  0.0  12744  2328 ?        Ss   12:08   0:00 /usr/sbin/kerneloops --test
+kernoops    1180  0.0  0.0  12744  2332 ?        Ss   12:08   0:00 /usr/sbin/kerneloops
+rtkit       1254  0.0  0.0  22940  3496 ?        SNsl 12:08   0:00 /usr/libexec/rtkit-daemon
+colord      1357  0.0  0.3 320068 14744 ?        Ssl  12:08   0:00 /usr/libexec/colord
+root        1391  0.1  0.2 316688  9220 ?        Ssl  12:08   0:01 /usr/libexec/upowerd
+root        1736  0.0  0.2 242584 10520 ?        Sl   12:08   0:00 gdm-session-worker [pam/gdm-passw
+jhasim      1754  0.0  0.3  21140 12524 ?        Ss   12:08   0:00 /usr/lib/systemd/systemd --user
+jhasim      1755  0.0  0.0  21468  3668 ?        S    12:08   0:00 (sd-pam)
+jhasim      1765  0.2  0.3 116588 15660 ?        S<sl 12:08   0:04 /usr/bin/pipewire
+jhasim      1767  0.0  0.1  97736  6048 ?        Ssl  12:08   0:00 /usr/bin/pipewire -c filter-chain
+jhasim      1768  0.0  0.2  39136 11700 ?        Ss   12:08   0:00 /snap/snapd-desktop-integration/3
+jhasim      1779  0.0  0.4 406860 18944 ?        S<sl 12:08   0:00 /usr/bin/wireplumber
+jhasim      1780  0.1  0.4 121500 20020 ?        S<sl 12:08   0:03 /usr/bin/pipewire-pulse
+jhasim      1781  0.0  0.2 316508 10408 ?        SLsl 12:08   0:00 /usr/bin/gnome-keyring-daemon --f
+jhasim      1786  0.0  0.1  11140  6856 ?        Ss   12:08   0:00 /usr/bin/dbus-daemon --session --
+jhasim      1821  0.0  0.1 685056  7608 ?        Ssl  12:08   0:00 /usr/libexec/xdg-document-portal
+jhasim      1830  0.0  0.1 235668  6196 tty2     Ssl+ 12:08   0:00 /usr/libexec/gdm-wayland-session 
+jhasim      1838  0.0  0.4 298236 16612 tty2     Sl+  12:08   0:00 /usr/libexec/gnome-session-binary
+jhasim      1866  0.0  0.1 309308  6236 ?        Ssl  12:08   0:00 /usr/libexec/xdg-permission-store
+root        1881  0.0  0.0   2704  2056 ?        Ss   12:08   0:00 fusermount3 -o rw,nosuid,nodev,fs
+jhasim      1926  0.0  0.1 162652  6868 ?        Ssl  12:08   0:00 /usr/libexec/gcr-ssh-agent --base
+jhasim      1929  0.0  0.1  91548  5556 ?        Ssl  12:08   0:00 /usr/libexec/gnome-session-ctl --
+jhasim      1943  0.0  0.2 314284  8060 ?        Ssl  12:08   0:00 /usr/libexec/gvfsd
+jhasim      1951  0.0  0.1 534472  7316 ?        Sl   12:08   0:00 /usr/libexec/gvfsd-fuse /run/user
+jhasim      1954  0.0  0.4 594224 18456 ?        Ssl  12:08   0:00 /usr/libexec/gnome-session-binary
+jhasim      1985  9.7 13.0 4134644 521744 ?      Rsl  12:08   3:03 /usr/bin/gnome-shell
+jhasim      1986  0.0  0.1 382940  7916 ?        Sl   12:08   0:00 /usr/libexec/at-spi-bus-launcher 
+jhasim      1999  0.0  0.1   9612  5272 ?        S    12:08   0:00 /usr/bin/dbus-daemon --config-fil
+jhasim      2073  0.0  0.1 236068  7596 ?        Sl   12:08   0:00 /usr/libexec/at-spi2-registryd --
+jhasim      2083  0.0  0.7 428468 28552 ?        Sl   12:08   0:00 /snap/snapd-desktop-integration/3
+jhasim      2098  0.0  0.4 654704 17824 ?        Sl   12:08   0:00 /usr/libexec/gnome-shell-calendar
+jhasim      2116  0.0  1.0 595336 42764 ?        Ssl  12:08   0:00 /usr/libexec/evolution-source-reg
+jhasim      2125  0.0  0.6 2519272 26868 ?       Sl   12:08   0:00 /usr/bin/gjs -m /usr/share/gnome-
+jhasim      2126  0.0  1.6 245188 66460 ?        S    12:08   0:00 /usr/bin/Xwayland :0 -rootless -n
+jhasim      2137  0.0  0.3 388640 12448 ?        Ssl  12:08   0:01 /usr/bin/ibus-daemon --panel disa
+jhasim      2138  0.0  0.1 383520  6744 ?        Ssl  12:08   0:00 /usr/libexec/gsd-a11y-settings
+jhasim      2139  0.0  0.5 412924 20652 ?        Ssl  12:08   0:00 /usr/libexec/gsd-color
+jhasim      2140  0.0  0.3 431668 12312 ?        Ssl  12:08   0:00 /usr/libexec/gsd-datetime
+jhasim      2141  0.0  0.1 458868  7980 ?        Ssl  12:08   0:00 /usr/libexec/gsd-housekeeping
+jhasim      2144  0.0  0.4 411784 19848 ?        Ssl  12:08   0:00 /usr/libexec/gsd-keyboard
+jhasim      2145  0.0  0.6 741636 25688 ?        Ssl  12:08   0:00 /usr/libexec/gsd-media-keys
+jhasim      2146  0.0  0.6 523552 24372 ?        Ssl  12:08   0:00 /usr/libexec/gsd-power
+jhasim      2147  0.0  0.2 323756 11656 ?        Ssl  12:08   0:00 /usr/libexec/gsd-print-notificati
+jhasim      2148  0.0  0.1 531084  6904 ?        Ssl  12:08   0:00 /usr/libexec/gsd-rfkill
+jhasim      2149  0.0  0.1 309560  6448 ?        Ssl  12:08   0:00 /usr/libexec/gsd-screensaver-prox
+jhasim      2150  0.0  0.2 543188 11684 ?        Ssl  12:08   0:00 /usr/libexec/gsd-sharing
+jhasim      2151  0.0  0.2 459552  8344 ?        Ssl  12:08   0:00 /usr/libexec/gsd-smartcard
+jhasim      2152  0.0  0.2 393636  9924 ?        Ssl  12:08   0:00 /usr/libexec/gsd-sound
+jhasim      2153  0.0  0.5 486492 20744 ?        Ssl  12:08   0:00 /usr/libexec/gsd-wacom
+jhasim      2174  0.0  0.6 546664 24460 ?        Sl   12:08   0:00 /usr/libexec/goa-daemon
+jhasim      2177  0.0  0.1 305624  7520 ?        Sl   12:08   0:00 /usr/libexec/gsd-disk-utility-not
+jhasim      2199  0.0  1.5 826320 60456 ?        Sl   12:08   0:00 /usr/libexec/evolution-data-serve
+jhasim      2292  0.0  0.2 463036 11412 ?        Ssl  12:08   0:00 /usr/libexec/gvfs-udisks2-volume-
+jhasim      2305  0.0  0.3 416236 15136 ?        Sl   12:08   0:00 /usr/libexec/gsd-printer
+jhasim      2336  0.0  0.1 310464  7388 ?        Sl   12:08   0:00 /usr/libexec/ibus-dconf
+jhasim      2339  0.1  0.7 421512 30028 ?        Sl   12:08   0:02 /usr/libexec/ibus-extension-gtk3
+jhasim      2346  0.0  0.1 310424  7296 ?        Sl   12:08   0:00 /usr/libexec/ibus-portal
+jhasim      2349  0.0  0.6 890724 24556 ?        Ssl  12:08   0:00 /usr/libexec/evolution-calendar-f
+jhasim      2375  0.0  0.2 389124  9408 ?        Sl   12:08   0:00 /usr/libexec/goa-identity-service
+jhasim      2380  0.0  0.2 389380  8180 ?        Ssl  12:08   0:00 /usr/libexec/gvfs-afc-volume-moni
+jhasim      2394  0.0  0.7 825444 30316 ?        Ssl  12:08   0:00 /usr/libexec/evolution-addressboo
+jhasim      2397  0.0  0.1 310760  7128 ?        Ssl  12:08   0:00 /usr/libexec/gvfs-gphoto2-volume-
+jhasim      2405  0.0  0.1 309772  6704 ?        Ssl  12:08   0:00 /usr/libexec/gvfs-goa-volume-moni
+jhasim      2415  0.0  0.1 309792  6708 ?        Ssl  12:08   0:00 /usr/libexec/gvfs-mtp-volume-moni
+jhasim      2447  0.0  0.1 236768  7552 ?        Sl   12:08   0:00 /usr/libexec/ibus-engine-simple
+jhasim      2453  0.0  0.1 230232  6164 ?        Ssl  12:08   0:00 /usr/libexec/dconf-service
+jhasim      2480  0.0  0.1 236340  6664 ?        Ssl  12:08   0:00 /usr/libexec/gvfsd-metadata
+jhasim      2481  0.0  0.2 609440  9280 ?        Sl   12:08   0:00 /usr/libexec/gvfsd-trash --spawne
+jhasim      2500  0.0  2.0 642236 83156 ?        Ssl  12:08   0:00 /usr/libexec/gsd-xsettings
+jhasim      2535  0.0  0.6 2584776 26892 ?       Sl   12:08   0:00 /usr/bin/gjs -m /usr/share/gnome-
+jhasim      2582  0.0  0.6 267140 24948 ?        Sl   12:08   0:00 /usr/libexec/ibus-x11
+jhasim      2592  0.0  1.8 3033056 72976 ?       Sl   12:08   0:01 gjs /usr/share/gnome-shell/extens
+jhasim      2608  0.0  0.7 948512 31744 ?        SNsl 12:08   0:01 /usr/libexec/tracker-miner-fs-3
+jhasim      2609  0.0  2.5 1119644 102188 ?      Sl   12:08   0:00 /usr/libexec/mutter-x11-frames
+jhasim      2618  0.0  0.3 701728 14620 ?        Ssl  12:08   0:00 /usr/libexec/xdg-desktop-portal
+jhasim      2631  0.0  1.0 630612 41236 ?        Ssl  12:08   0:00 /usr/libexec/xdg-desktop-portal-g
+jhasim      2650  0.0  0.6 417764 26332 ?        Ssl  12:08   0:00 /usr/libexec/xdg-desktop-portal-g
+jhasim      2873  0.0  0.7 568692 31772 ?        Sl   12:09   0:00 /usr/bin/update-notifier
+jhasim      3154  0.0  0.6 1765640 24504 ?       Sl   12:10   0:00 /usr/bin/snap userd
+jhasim      3975  0.0  0.2 388228  8656 ?        Sl   12:11   0:00 /usr/libexec/gvfsd-recent --spawn
+jhasim      4095  0.3  6.5 1683916 261396 ?      Sl   12:12   0:05 /usr/bin/gnome-text-editor /home/
+root        4445  0.2  1.0 1923648 41744 ?       Ssl  12:14   0:03 /usr/lib/snapd/snapd
+jhasim      4722  0.4  1.4 625992 57508 ?        Ssl  12:14   0:07 /usr/libexec/gnome-terminal-serve
+jhasim      4731  0.0  0.1  11024  5248 pts/0    Ss   12:14   0:00 bash
+root        5000  0.0  0.0      0     0 ?        S    12:14   0:00 [psimon]
+jhasim      5035  3.0 13.5 3454140 543532 ?      Sl   12:16   0:43 /snap/firefox/7720/usr/lib/firefo
+jhasim      5104  0.0  0.0 149128  2972 ?        Sl   12:16   0:00 /snap/firefox/7720/usr/lib/firefo
+jhasim      5189  0.0  0.8 434964 35568 ?        S    12:16   0:00 /snap/firefox/7720/usr/lib/firefo
+jhasim      5193  0.0  1.0 449404 40272 ?        Sl   12:16   0:00 /snap/firefox/7720/usr/lib/firefo
+jhasim      5214  0.0  2.5 2601616 103492 ?      Sl   12:16   0:00 /snap/firefox/7720/usr/lib/firefo
+jhasim      5223  0.0  1.3 584716 52184 ?        Sl   12:16   0:00 /snap/firefox/7720/usr/lib/firefo
+jhasim      5259  0.3  3.9 2648908 158728 ?      Sl   12:16   0:04 /snap/firefox/7720/usr/lib/firefo
+jhasim      5765  0.0  1.2 583428 50272 ?        Sl   12:16   0:00 /snap/firefox/7720/usr/lib/firefo
+jhasim      5768  1.6  5.8 2761012 235072 ?      Sl   12:16   0:23 /snap/firefox/7720/usr/lib/firefo
+jhasim      5951  0.2  3.8 2657588 154400 ?      Sl   12:16   0:03 /snap/firefox/7720/usr/lib/firefo
+jhasim      5989  0.0  1.7 2561100 70276 ?       Sl   12:16   0:00 /snap/firefox/7720/usr/lib/firefo
+jhasim      6031  0.0  1.7 2561100 70200 ?       Sl   12:16   0:00 /snap/firefox/7720/usr/lib/firefo
+root        6060  0.0  0.0      0     0 ?        I    12:16   0:00 [kworker/0:0-cgroup_destroy]
+root        6262  0.0  0.0      0     0 ?        I    12:27   0:00 [kworker/u10:1-flush-8:0]
+root        6316  0.0  0.0      0     0 ?        I<   12:31   0:00 [kworker/1:2H-kblockd]
+root        6318  0.0  0.0      0     0 ?        I<   12:31   0:00 [kworker/0:2H]
+root        6320  0.0  0.0      0     0 ?        I    12:32   0:00 [kworker/u9:2-events_power_effici
+root        6345  0.0  0.0      0     0 ?        I    12:34   0:00 [kworker/1:1-events]
+jhasim      6356  1.3  6.8 1694084 274808 ?      Sl   12:35   0:03 /usr/bin/nautilus --gapplication-
+root        6406  0.0  0.0      0     0 ?        I    12:35   0:00 [kworker/0:2-cgroup_destroy]
+jhasim      6453  0.0  1.7 2561116 70144 ?       Sl   12:36   0:00 /snap/firefox/7720/usr/lib/firefo
+root        6478  0.0  0.0      0     0 ?        I    12:37   0:00 [kworker/u9:0]
+root        6479  0.0  0.0      0     0 ?        I    12:37   0:00 [kworker/u9:3-events_unbound]
+jhasim      6515  0.0  0.1  13756  4740 pts/0    R+   12:40   0:00 ps aux
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ ls
+dir1  file1.txt  file2.txt  script.sh
+jhasim@jhasim:~/LinuxMod$ mkdir dir2
+jhasim@jhasim:~/LinuxMod$ ls
+dir1  dir2  file1.txt  file2.txt  script.sh
+jhasim@jhasim:~/LinuxMod$ cd dir1
+jhasim@jhasim:~/LinuxMod/dir1$ rm -r dir2
+jhasim@jhasim:~/LinuxMod/dir1$ ls
+softlink.txt
+jhasim@jhasim:~/LinuxMod/dir1$ cd ..
+jhasim@jhasim:~/LinuxMod$ ls
+dir1  dir2  file1.txt  file2.txt  script.sh
+jhasim@jhasim:~/LinuxMod$ rm -r dir2
+jhasim@jhasim:~/LinuxMod$ ls
+dir1  file1.txt  file2.txt  script.sh
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ 
+jhasim@jhasim:~/LinuxMod$ mkdir dir2
+jhasim@jhasim:~/LinuxMod$ cd dir2
+jhasim@jhasim:~/LinuxMod/dir2$ ls
+jhasim@jhasim:~/LinuxMod/dir2$ touch f1.txt
+jhasim@jhasim:~/LinuxMod/dir2$ sleep 1
+jhasim@jhasim:~/LinuxMod/dir2$ touch f2.txt
+jhasim@jhasim:~/LinuxMod/dir2$ sleep 2
+jhasim@jhasim:~/LinuxMod/dir2$ touch f3.txt
+jhasim@jhasim:~/LinuxMod/dir2$ sleep 3
+jhasim@jhasim:~/LinuxMod/dir2$ ls -lt
+total 0
+-rw-rw-r-- 1 jhasim jhasim 0 Feb  2 12:44 f3.txt
+-rw-rw-r-- 1 jhasim jhasim 0 Feb  2 12:43 f2.txt
+-rw-rw-r-- 1 jhasim jhasim 0 Feb  2 12:43 f1.txt
+jhasim@jhasim:~/LinuxMod/dir2$ ls -lt > sorted_output.txt
+jhasim@jhasim:~/LinuxMod/dir2$ cat sorted_output.txt
+total 0
+-rw-rw-r-- 1 jhasim jhasim 0 Feb  2 12:45 sorted_output.txt
+-rw-rw-r-- 1 jhasim jhasim 0 Feb  2 12:44 f3.txt
+-rw-rw-r-- 1 jhasim jhasim 0 Feb  2 12:43 f2.txt
+-rw-rw-r-- 1 jhasim jhasim 0 Feb  2 12:43 f1.txt
+jhasim@jhasim:~/LinuxMod/dir2$ ls
+f1.txt  f2.txt  f3.txt  sorted_output.txt
+jhasim@jhasim:~/LinuxMod/dir2$ cd ..
+
